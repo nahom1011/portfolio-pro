@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import Background from './components/Background/Background';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
@@ -26,7 +27,20 @@ function App() {
             <ScrollReveal delay={200}>
               <div className="hero-cta">
                 <button className="btn btn-primary">View Projects</button>
-                <button className="btn btn-secondary">Get in Touch</button>
+                <div className="glowing-box glowing-box-active" style={{ "--animation-speed": "2s" } as CSSProperties}>
+                  <div className="glowing-box-animations">
+                    <div className="glowing-box-glow"></div>
+                    <div className="glowing-box-stars-masker">
+                      <div className="glowing-box-stars"></div>
+                    </div>
+                  </div>
+                  <div className="glowing-box-borders-masker">
+                    <div className="glowing-box-borders"></div>
+                  </div>
+                  <button className="glowing-box-button">
+                    <span className="glowing-span">contact me </span>
+                  </button>
+                </div>
               </div>
             </ScrollReveal>
           </div>
