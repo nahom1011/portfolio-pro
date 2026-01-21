@@ -1,0 +1,31 @@
+.reveal-item {
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-up {
+    transform: translateY(40px);
+}
+
+.reveal-down {
+    transform: translateY(-40px);
+}
+
+.reveal-left {
+    transform: translateX(40px);
+}
+
+.reveal-right {
+    transform: translateX(-40px);
+}
+
+.reveal-none {
+    transform: none;
+}
+
+.reveal-item.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}

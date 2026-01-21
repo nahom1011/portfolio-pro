@@ -1,0 +1,9 @@
+main {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+}

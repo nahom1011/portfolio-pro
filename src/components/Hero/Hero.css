@@ -1,0 +1,34 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-name {
+    font-size: clamp(4rem, 15vw, 12rem);
+    /* Responsive extra-large font */
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0 var(--spacing-md);
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .hero-name {
+        letter-spacing: 0.05em;
+    }
+}
