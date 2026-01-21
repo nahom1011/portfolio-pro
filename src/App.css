@@ -15,8 +15,8 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 2rem;
-  padding: 4rem 1rem;
+  gap: 1rem;
+  padding: 1rem 1rem;
 }
 
 .hero-tagline {

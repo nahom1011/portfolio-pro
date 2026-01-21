@@ -8,13 +8,13 @@
   /* Muted gray */
   --color-accent: #0a84ff;
   /* Vibrant iOS blue */
-  --color-glass-bg: rgba(28, 28, 30, 0.7);
+  --color-glass-bg: rgba(28, 28, 30, 0.4);
   /* Darker glass background */
   --color-glass-border: rgba(255, 255, 255, 0.1);
   /* Subtle white border */
 
   /* Glassmorphism */
-  --glass-blur: 25px;
+  --glass-blur: 15px;
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 
   /* Geometry */
@@ -30,7 +30,7 @@
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
-  --spacing-lg: 4rem;
+  --spacing-lg: 3rem;
   --spacing-xl: 8rem;
 }
 

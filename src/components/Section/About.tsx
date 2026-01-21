@@ -16,18 +16,46 @@ const About: React.FC = () => {
                         I believe that software should not only be functional but also beautiful and delightful to use.
                     </p>
                 </div>
-                <div className="about-stats glass">
-                    <div className="stat-item">
-                        <span className="stat-value">5+</span>
-                        <span className="stat-label">Years Exp.</span>
+                <div className="uiverse-card">
+                    <div className="uiverse-card-bg">
+                        <div className="uiverse-card-bg-inner"></div>
                     </div>
-                    <div className="stat-item">
-                        <span className="stat-value">50+</span>
-                        <span className="stat-label">Projects</span>
+
+                    <div className="uiverse-card-center">
+                        <div
+                            className="uiverse-card-spinner"
+                            style={{ animationDuration: '12s' }}
+                        ></div>
                     </div>
-                    <div className="stat-item">
-                        <span className="stat-value">100%</span>
-                        <span className="stat-label">Dedication</span>
+
+                    <div className="uiverse-card-content">
+                        <div className="uiverse-card-left">
+                            <span className="uiverse-card-title">5+ Years</span>
+                            <span className="uiverse-card-subtitle">Experience</span>
+                            <div className="uiverse-card-year">
+                                <span>30+ Projects</span>
+                            </div>
+                        </div>
+                        <div className="uiverse-card-right">
+                            <span className="uiverse-label-text">Full Stack</span>
+                            <span className="uiverse-label-sub">Developer</span>
+                            <div className="uiverse-icon-btn">
+                                <span className="uiverse-icon-span">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 12 12"
+                                        className="uiverse-icon-svg"
+                                    >
+                                        <g fill="none">
+                                            <path
+                                                d="M4.646 2.146a.5.5 0 0 0 0 .708L7.793 6L4.646 9.146a.5.5 0 1 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"
+                                                fill="currentColor"
+                                            ></path>
+                                        </g>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
