@@ -16,16 +16,18 @@ const Skills: React.FC = () => {
         <Section id="skills" title="Skills">
             <div className="skills-grid">
                 {skills.map((skill) => (
-                    <div key={skill.name} className="skill-card glass">
-                        <div className="skill-info">
-                            <span className="skill-name">{skill.name}</span>
-                            <span className="skill-percentage">{skill.level}%</span>
-                        </div>
-                        <div className="skill-bar-bg">
-                            <div
-                                className="skill-bar-fill"
-                                style={{ width: `${skill.level}%` }}
-                            ></div>
+                    <div key={skill.name} className="skill-card liquid-glass">
+                        <div className="liquid-glass-inner">
+                            <div className="skill-header">
+                                <span className="skill-name">{skill.name}</span>
+                                <span className="skill-percentage">{skill.level}%</span>
+                            </div>
+                            <div className="skill-bar-container">
+                                <div
+                                    className="skill-bar-fill"
+                                    style={{ width: `${skill.level}%` }}
+                                />
+                            </div>
                         </div>
                     </div>
                 ))}

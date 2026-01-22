@@ -1,66 +1,308 @@
-.contact-container {
+/* Contact Container - Main Liquid Glass Card */
+.contact-container.liquid-glass {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    gap: var(--spacing-xl);
+    gap: 32px;
+    padding: 48px;
+    border-radius: 28px;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.04) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Subtle inner glow for depth */
+.contact-container.liquid-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 100%);
+    border-radius: 28px 28px 0 0;
+    pointer-events: none;
+}
+
+/* Form Wrapper */
+.contact-form-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact Form */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: 20px;
 }
 
-.form-group input,
-.form-group textarea {
+/* Form Group */
+.form-group {
+    position: relative;
+}
+
+/* Liquid Glass Inputs & Textarea */
+.liquid-glass-input {
     width: 100%;
-    padding: 1rem;
-    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--color-text-primary);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            rgba(255, 255, 255, 0.03) 100%);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    color: rgba(255, 255, 255, 0.95);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        inset 0 1px 2px rgba(0, 0, 0, 0.1),
+        0 1px 0 rgba(255, 255, 255, 0.05);
+    resize: none;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.liquid-glass-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+/* Input Focus State */
+.liquid-glass-input:focus {
     outline: none;
-    border-color: var(--color-accent);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.05) 100%);
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.08),
+        inset 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
 }
 
-.submit-btn {
+.liquid-glass-input:hover:not(:focus) {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.04) 100%);
+}
+
+/* Textarea specific */
+textarea.liquid-glass-input {
+    min-height: 140px;
+    font-family: inherit;
+}
+
+/* Submit Button - Liquid Glass Style */
+.submit-btn.liquid-glass-button {
     width: fit-content;
+    padding: 14px 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-.contact-info h3 {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-sm);
+/* Button inner highlight */
+.submit-btn.liquid-glass-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 100%);
+    border-radius: 20px 20px 0 0;
+    pointer-events: none;
 }
 
-.contact-info p {
-    color: var(--color-text-secondary);
+/* Button hover state */
+.submit-btn.liquid-glass-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.12) 100%);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Button active state */
+.submit-btn.liquid-glass-button:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.12),
+        inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact Info Section */
+.contact-info.liquid-glass-info {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Contact Title */
+.contact-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+/* Contact Description */
+.contact-description {
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.6;
-    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 32px;
 }
 
+/* Social Links Container */
 .social-links {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: 12px;
 }
 
-.social-links a {
+/* Social Link - Liquid Glass Style */
+.social-link.liquid-glass-link {
+    display: inline-block;
+    width: fit-content;
+    padding: 12px 24px;
+    border-radius: 16px;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.04) 100%);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
     font-weight: 600;
-    color: var(--color-accent);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .contact-container {
+/* Link inner highlight */
+.social-link.liquid-glass-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 100%);
+    border-radius: 16px 16px 0 0;
+    pointer-events: none;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+/* Link hover state */
+.social-link.liquid-glass-link:hover {
+    transform: translateX(4px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.06) 100%);
+    color: rgba(255, 255, 255, 1);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.social-link.liquid-glass-link:hover::before {
+    opacity: 1;
+}
+
+/* Link active state */
+.social-link.liquid-glass-link:active {
+    transform: translateX(2px) scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .contact-container.liquid-glass {
         grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px;
+    }
+
+    .contact-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-container.liquid-glass {
+        padding: 32px 24px;
+        border-radius: 24px;
+    }
+
+    .liquid-glass-input {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+
+    .submit-btn.liquid-glass-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contact-title {
+        font-size: 24px;
+    }
+
+    .contact-description {
+        font-size: 15px;
     }
 }
