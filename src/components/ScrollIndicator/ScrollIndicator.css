@@ -1,0 +1,133 @@
+.scroll-indicator-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    pointer-events: none;
+    /* Let clicks pass through if needed, though button usually wants clicks */
+}
+
+/* 
+   We only need the 'liquid-metal' button part from the provided CSS.
+   The .text-box styles are irrelevant for a centered scroll arrow.
+*/
+
+:root {
+    --bg-color: #1d1d1d;
+    --light-color: #444;
+    --dark-color: #000;
+    --icon-color: #65615f;
+}
+
+#liquid-metal {
+    position: relative;
+    width: 60px;
+    /* Reduced from 38.5rem for a scroll indicator size */
+    height: 60px;
+    border-radius: 50%;
+    pointer-events: auto;
+    cursor: pointer;
+
+    /* Initial bounce animation */
+    animation: scrollBob 2s infinite ease-in-out;
+}
+
+#liquid-metal canvas {
+    border-radius: 50%;
+}
+
+@keyframes scrollBob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Since the shader handles the background, we might not need the ::before gradient if the shader covers it. 
+   But keeping it as a fallback or base. */
+#liquid-metal::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: linear-gradient(#444, #000);
+    border-radius: 50%;
+    box-shadow: inset 0 0.2rem 0.2rem 0.2rem rgba(255, 255, 255, 0.3);
+    z-index: 0;
+}
+
+.outline {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 2;
+    /* Above the shader/canvas */
+}
+
+/* The colorful ring on hover */
+.outline::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    padding: 2px;
+    border-radius: inherit;
+    background: conic-gradient(from 180deg, blue, purple, red, purple, blue);
+    filter: grayscale(1);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+}
+
+.outline:hover::before {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.outline .svg-icon {
+    width: 40%;
+    /* Relative to container */
+    fill: #65615f;
+    /* Rotate to point DOWN. 
+     Original was rotated -45deg in css. 
+     The path looks like an arrow pointing top-right by default? 
+     Let's assume we need to rotate it significantly. 
+     If it's an "arrow-up-right", visible rotation is needed.
+  */
+    transform: rotate(136deg);
+    /* Trial and error: 135deg might point down-right? We will see. */
+    transition: transform 0.3s ease;
+}
+
+/* Ensure the canvas created by ShaderMount fits */
+#liquid-metal canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50%;
+    z-index: 1;
+}
