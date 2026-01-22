@@ -31,15 +31,21 @@ const Projects: React.FC = () => {
         <Section id="projects" title="Projects">
             <div className="projects-grid">
                 {projects.map((project) => (
-                    <div key={project.title} className="project-card glass">
-                        <div className="project-image-container">
-                            <img src={project.image} alt={project.title} className="project-image" />
+                    <div key={project.title} className="liquid-glass-card">
+                        <div className="liquid-image-container">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="liquid-project-image"
+                            />
                         </div>
-                        <div className="project-info">
-                            <span className="project-category">{project.category}</span>
-                            <h3 className="project-title">{project.title}</h3>
-                            <p className="project-description">{project.description}</p>
-                            <a href={project.link} className="project-link">View Project →</a>
+                        <div className="liquid-content">
+                            <span className="liquid-category">{project.category}</span>
+                            <h3 className="liquid-title">{project.title}</h3>
+                            <p className="liquid-description">{project.description}</p>
+                            <a href={project.link} className="liquid-link">
+                                View Project →
+                            </a>
                         </div>
                     </div>
                 ))}
