@@ -20,6 +20,9 @@ function App() {
         <section className="intro-section">
           <div className="intro-content">
             <ScrollReveal>
+              <div className="hero-photo-container">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=colman&w=200&h=200" alt="Profile" className="hero-photo" />
+              </div>
               <h2 className="hero-tagline">
                 Crafting Digital Experiences with <span className="highlight">Precision</span> and <span className="highlight">Elegance</span>.
               </h2>
