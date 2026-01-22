@@ -23,7 +23,10 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.15),
         inset 0 -1px 0 rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s ease,
+        border-color 0.5s ease;
     will-change: transform, box-shadow;
 }
 
@@ -111,7 +114,9 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     color: rgba(255, 255, 255, 0.7);
-    transition: all 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .skill-card.liquid-glass:hover .skill-percentage {
@@ -139,7 +144,10 @@
             rgba(255, 255, 255, 0.25) 100%);
     border-radius: 12px;
     position: relative;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.4s ease,
+        box-shadow 0.4s ease;
     box-shadow:
         0 1px 4px rgba(255, 255, 255, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);

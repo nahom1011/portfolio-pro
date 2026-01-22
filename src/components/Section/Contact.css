@@ -152,6 +152,7 @@ a.info-value:hover {
 .social-link.liquid-glass-link {
     display: flex;
     align-items: center;
+    gap: 12px;
     padding: 12px 20px;
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.05);
@@ -168,6 +169,16 @@ a.info-value:hover {
     border-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     transform: translateX(6px);
+}
+
+.social-link.liquid-glass-link svg {
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.social-link.liquid-glass-link:hover svg {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Responsive Design */

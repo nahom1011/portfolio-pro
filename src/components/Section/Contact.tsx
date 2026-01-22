@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linkedin, Github, Twitter, Instagram } from 'lucide-react';
 import Section from '../Section/Section';
 import './Contact.css';
 
@@ -89,10 +90,22 @@ const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent
                         Feel free to reach out on social media or professional platforms.
                     </p>
                     <div className="social-links-vertical">
-                        <a href="#" className="social-link liquid-glass-link">LinkedIn</a>
-                        <a href="#" className="social-link liquid-glass-link">GitHub</a>
-                        <a href="#" className="social-link liquid-glass-link">Twitter</a>
-                        <a href="#" className="social-link liquid-glass-link">Instagram</a>
+                        <a href="#" className="social-link liquid-glass-link">
+                            <Linkedin size={18} strokeWidth={2} />
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" className="social-link liquid-glass-link">
+                            <Github size={18} strokeWidth={2} />
+                            <span>GitHub</span>
+                        </a>
+                        <a href="#" className="social-link liquid-glass-link">
+                            <Twitter size={18} strokeWidth={2} />
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" className="social-link liquid-glass-link">
+                            <Instagram size={18} strokeWidth={2} />
+                            <span>Instagram</span>
+                        </a>
                     </div>
                 </div>
             </div>
