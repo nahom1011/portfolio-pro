@@ -61,7 +61,6 @@
     opacity: 0;
     /* Ensure hidden initially */
     animation: heroFadeSlideUp 1.5s ease-out forwards;
-    will-change: opacity, transform;
 }
 
 @media (max-width: 768px) {

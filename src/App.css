@@ -17,6 +17,8 @@ section {
   text-align: center;
   gap: 1rem;
   padding: 1rem 1rem;
+  margin-bottom: -6rem;
+  /* Reduce gap to About section */
 }
 
 .hero-photo-container {
