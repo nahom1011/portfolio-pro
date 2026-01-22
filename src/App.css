@@ -3,6 +3,12 @@ main {
   z-index: 1;
 }
 
+.content-blur {
+  filter: blur(4px) saturate(80%);
+  pointer-events: none;
+  transition: filter 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
 section {
   max-width: 1000px;
   margin: 0 auto;

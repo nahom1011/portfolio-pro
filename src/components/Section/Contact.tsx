@@ -2,12 +2,37 @@ import React from 'react';
 import Section from '../Section/Section';
 import './Contact.css';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+    onSendStart?: () => void;
+    onSendEnd?: () => void;
+    onMessageSent?: (message: string, type: 'success' | 'error') => void;
+}
+
+const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent }) => {
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (onSendStart) onSendStart();
+
+        // Realistic placeholder logic for email request
+        try {
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            if (onMessageSent) onMessageSent("Message sent successfully!", "success");
+        } catch (error) {
+            console.error("Failed to send message:", error);
+            if (onMessageSent) onMessageSent("Failed to send message. Please try again.", "error");
+        } finally {
+            if (onSendEnd) onSendEnd();
+        }
+    };
+
     return (
-        <Section id="contact">
-            <div className="contact-container liquid-glass">
-                <div className="contact-form-wrapper">
-                    <form className="contact-form">
+        <Section id="contact" title="Contact">
+            <div className="contact-grid liquid-glass">
+                {/* 1. Send a Message */}
+                <div className="contact-column">
+                    <h3 className="column-title">Send a Message</h3>
+                    <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <input
                                 type="text"
@@ -27,7 +52,7 @@ const Contact: React.FC = () => {
                         <div className="form-group">
                             <textarea
                                 placeholder="Message"
-                                rows={5}
+                                rows={4}
                                 className="liquid-glass-input"
                                 required
                             />
@@ -37,15 +62,37 @@ const Contact: React.FC = () => {
                         </button>
                     </form>
                 </div>
-                <div className="contact-info liquid-glass-info">
-                    <h3 className="contact-title">Let's Collaborate</h3>
-                    <p className="contact-description">
-                        Always open to new opportunities and creative collaborations. Feel free to reach out!
+
+                {/* 2. Contact Information */}
+                <div className="contact-column">
+                    <h3 className="column-title">Contact Information</h3>
+                    <div className="info-list">
+                        <div className="info-item">
+                            <span className="info-label">Email</span>
+                            <a href="mailto:contact@example.com" className="info-value">contact@example.com</a>
+                        </div>
+                        <div className="info-item">
+                            <span className="info-label">Phone</span>
+                            <span className="info-value">+1 (234) 567-890</span>
+                        </div>
+                        <div className="info-item">
+                            <span className="info-label">Location</span>
+                            <span className="info-value">Addis Ababa, Ethiopia</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 3. Connect with Me */}
+                <div className="contact-column">
+                    <h3 className="column-title">Connect with Me</h3>
+                    <p className="column-description">
+                        Feel free to reach out on social media or professional platforms.
                     </p>
-                    <div className="social-links">
+                    <div className="social-links-vertical">
                         <a href="#" className="social-link liquid-glass-link">LinkedIn</a>
                         <a href="#" className="social-link liquid-glass-link">GitHub</a>
                         <a href="#" className="social-link liquid-glass-link">Twitter</a>
+                        <a href="#" className="social-link liquid-glass-link">Instagram</a>
                     </div>
                 </div>
             </div>
