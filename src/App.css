@@ -244,6 +244,10 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   padding: 7px 24px;
   position: relative;
   z-index: 1;
@@ -264,7 +268,7 @@ section {
   overflow: visible;
 }
 
-glowing-box-button {
+.glowing-box-button {
   background-color: transparent;
   border: 1px solid transparent;
   font-family: inherit;
@@ -273,7 +277,7 @@ glowing-box-button {
   margin: 0;
 }
 
-.glowing-box .glowing-box .glowing-box-button {
+.glowing-box .glowing-box-button {
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
@@ -327,5 +331,39 @@ glowing-box-button {
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* View Projects Button - Enhanced UI */
+.view-projects-btn {
+  position: relative;
+  overflow: hidden;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 4px 20px rgba(10, 132, 255, 0.4);
+}
+
+.view-projects-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(10, 132, 255, 0.5);
+  background-color: #007aff;
+}
+
+.view-projects-btn svg {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.view-projects-btn:hover svg {
+  transform: rotate(45deg) scale(1.1);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
   }
 }

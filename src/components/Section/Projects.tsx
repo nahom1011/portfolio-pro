@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '../Section/Section';
 import './Projects.css';
 
@@ -27,11 +27,29 @@ const projects = [
 ];
 
 const Projects: React.FC = () => {
+    const [activeCategory, setActiveCategory] = useState('All');
+    const categories = ['All', ...new Set(projects.map(p => p.category.split(' / ')[0]))];
+
+    const filteredProjects = activeCategory === 'All'
+        ? projects
+        : projects.filter(p => p.category.includes(activeCategory));
+
     return (
         <Section id="projects" title="Projects">
-            <div className="projects-grid">
-                {projects.map((project) => (
-                    <div key={project.title} className="liquid-glass-card">
+            <div className="projects-filter">
+                {categories.map(cat => (
+                    <button
+                        key={cat}
+                        className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
+                        onClick={() => setActiveCategory(cat)}
+                    >
+                        {cat}
+                    </button>
+                ))}
+            </div>
+            <div className="projects-grid" key={activeCategory}>
+                {filteredProjects.map((project) => (
+                    <div key={project.title} className="liquid-glass-card projects-reveal">
                         <div className="liquid-image-container">
                             <img
                                 src={project.image}
