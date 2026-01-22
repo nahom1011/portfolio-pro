@@ -23,8 +23,9 @@ function App() {
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=colman&w=200&h=200" alt="Profile" className="hero-photo" />
             </div>
             <h2 className="hero-tagline">
-              Crafting Digital Experiences with <span className="highlight">Precision</span> and <span className="highlight">Elegance</span>.
-            </h2>
+  WEB Developer, <span className="highlight">Bot Architect</span>, <span className="highlight">Cybersecurity Enthusiast</span>, and <span className="highlight">CCTV Installer</span> — Crafting Solutions with <span className="highlight">Precision</span> and <span className="highlight">Excellence</span>.
+</h2>
+
           
           <div className="hero-cta">
             <button className="btn btn-primary">View Projects</button>

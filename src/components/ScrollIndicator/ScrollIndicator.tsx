@@ -3,10 +3,10 @@ import './ScrollIndicator.css';
 
 const ScrollIndicator: React.FC = () => {
     const scrollToContent = () => {
-        window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth'
-        });
+        const introSection = document.querySelector('.intro-section');
+        if (introSection) {
+            introSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     };
 
     return (

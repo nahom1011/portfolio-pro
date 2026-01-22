@@ -16,8 +16,9 @@ section {
   justify-content: center;
   text-align: center;
   gap: 1rem;
-  padding: 1rem 1rem;
-  margin-bottom: -6rem;
+  padding: 1rem 1rem 3rem 1rem;
+  /* Added bottom padding for longer text */
+  margin-bottom: -7rem;
   /* Reduce gap to About section */
 }
 
@@ -37,15 +38,19 @@ section {
 }
 
 .hero-tagline {
-  font-size: 2.5rem;
-  line-height: 1.2;
+  font-size: 2rem;
+  /* Reduced from 2.5rem for longer text */
+  line-height: 1.3;
+  /* Slightly increased for better readability */
   font-weight: 700;
   max-width: 800px;
+  /* Increased from 800px to accommodate longer text */
   background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  /* Increased from 0.5rem */
 }
 
 .hero-tagline .highlight {

@@ -8,12 +8,10 @@ const About: React.FC = () => {
             <div className="about-grid">
                 <div className="about-text">
                     <p>
-                        I am a passionate designer and developer dedicated to creating high-fidelity digital experiences.
-                        My work is defined by a meticulous attention to detail, a focus on performance, and a deep appreciation for the iOS aesthetic.
+                        I am a Developer, Bot Architect, Cybersecurity Specialist, and CCTV Installer dedicated to crafting solutions with precision and excellence. I design and build dynamic websites and intelligent automation systems, ensuring every project is robust, scalable, and tailored to the client’s needs.
                     </p>
                     <p>
-                        With a background in both front-end engineering and UI/UX design, I bridge the gap between creative vision and technical implementation.
-                        I believe that software should not only be functional but also beautiful and delightful to use.
+                        Beyond development, I specialize in cybersecurity and CCTV installation, implementing secure systems and reliable networks that protect and optimize operations. My work combines technical expertise, innovation, and attention to detail, delivering solutions that are both functional and elegant.
                     </p>
                 </div>
                 <div className="uiverse-card">
