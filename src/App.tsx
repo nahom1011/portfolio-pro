@@ -9,10 +9,12 @@ import Projects from './components/Section/Projects';
 import Contact from './components/Section/Contact';
 import LoadingOverlay from './components/LoadingOverlay/LoadingOverlay';
 import Toast from './components/Toast/Toast';
+import DynamicIsland from './components/DynamicIsland/DynamicIsland';
 import './App.css';
 
 function App() {
   const [isSending, setIsSending] = useState(false);
+  const [isCVDownloading, setIsCVDownloading] = useState(false);
   const [toast, setToast] = useState({
     message: '',
     type: 'success' as 'success' | 'error',
@@ -21,6 +23,10 @@ function App() {
 
   const showToast = (message: string, type: 'success' | 'error') => {
     setToast({ message, type, isVisible: true });
+  };
+
+  const handleDownloadCV = () => {
+    setIsCVDownloading(true);
   };
 
   return (
@@ -33,6 +39,10 @@ function App() {
         type={toast.type}
         isVisible={toast.isVisible}
         onClose={() => setToast(prev => ({ ...prev, isVisible: false }))}
+      />
+      <DynamicIsland
+        isVisible={isCVDownloading}
+        onComplete={() => setIsCVDownloading(false)}
       />
       <main className={isSending ? 'content-blur' : ''}>
         <Hero />
@@ -63,8 +73,8 @@ function App() {
                 <div className="glowing-box-borders-masker">
                   <div className="glowing-box-borders"></div>
                 </div>
-                <a href="#" download className="glowing-box-button">
-                  <span className="glowing-span">contact me </span>
+                <a href="/portfolio.pdf" download="Nahom_Teshome_CV.pdf" onClick={handleDownloadCV} className="glowing-box-button">
+                  <span className="glowing-span">Download CV</span>
                 </a>
               </div>
             </div>
