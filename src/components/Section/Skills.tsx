@@ -19,6 +19,7 @@ const skills = [
     { name: 'C#', icon: 'dotnet', color: '#239120' },
     { name: 'C++', icon: 'cplusplus', color: '#00599C' },
     { name: 'Java', icon: 'java', color: '#007396' },
+    { name: 'Git', icon: 'git', color: '#F05032' },
     { name: 'OSINT', icon: 'osint', color: '#4CAF50' },
     { name: 'Arch', icon: 'archlinux', color: '#1793D1' },
 ];
