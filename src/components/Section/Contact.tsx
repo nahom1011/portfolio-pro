@@ -1,4 +1,5 @@
 import React from 'react';
+import emailjs from '@emailjs/browser';
 import { Linkedin, Github, Twitter, Instagram } from 'lucide-react';
 import Section from '../Section/Section';
 import './Contact.css';
@@ -10,18 +11,31 @@ interface ContactProps {
 }
 
 const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent }) => {
+    const form = React.useRef<HTMLFormElement>(null);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         if (onSendStart) onSendStart();
 
-        // Realistic placeholder logic for email request
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            if (!form.current) return;
+
+            console.log("Sending email with Service ID:", import.meta.env.VITE_EMAILJS_SERVICE_ID ? "Preset" : "Missing");
+
+            const result = await emailjs.sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                form.current,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
+
+            console.log("EmailJS Success:", result.text);
             if (onMessageSent) onMessageSent("Message sent successfully!", "success");
+            if (form.current) form.current.reset();
         } catch (error) {
-            console.error("Failed to send message:", error);
-            if (onMessageSent) onMessageSent("Failed to send message. Please try again.", "error");
+            console.error("EmailJS Error:", error);
+            if (onMessageSent) onMessageSent("Failed to send message. Check console for details.", "error");
         } finally {
             if (onSendEnd) onSendEnd();
         }
@@ -33,11 +47,12 @@ const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent
                 {/* 1. Send a Message */}
                 <div className="contact-column">
                     <h3 className="column-title">Send a Message</h3>
-                    <form className="contact-form" onSubmit={handleSubmit}>
+                    <form className="contact-form" ref={form} onSubmit={handleSubmit}>
                         <div className="form-group">
                             <input
                                 type="text"
                                 placeholder="Name"
+                                name="user_name"
                                 className="liquid-glass-input"
                                 required
                             />
@@ -46,6 +61,7 @@ const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent
                             <input
                                 type="email"
                                 placeholder="Email"
+                                name="user_email"
                                 className="liquid-glass-input"
                                 required
                             />
@@ -53,6 +69,7 @@ const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent
                         <div className="form-group">
                             <textarea
                                 placeholder="Message"
+                                name="message"
                                 rows={4}
                                 className="liquid-glass-input"
                                 required
@@ -70,11 +87,11 @@ const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent
                     <div className="info-list">
                         <div className="info-item">
                             <span className="info-label">Email</span>
-                            <a href="mailto:contact@example.com" className="info-value">contact@example.com</a>
+                            <a href="mailto:nahomteshome708@gmail.com" className="info-value">nahomteshome708@gmail.com</a>
                         </div>
                         <div className="info-item">
                             <span className="info-label">Phone</span>
-                            <span className="info-value">+1 (234) 567-890</span>
+                            <span className="info-value">+251945293560</span>
                         </div>
                         <div className="info-item">
                             <span className="info-label">Location</span>
@@ -90,11 +107,11 @@ const Contact: React.FC<ContactProps> = ({ onSendStart, onSendEnd, onMessageSent
                         Feel free to reach out on social media or professional platforms.
                     </p>
                     <div className="social-links-vertical">
-                        <a href="#" className="social-link liquid-glass-link">
+                        <a href="https://www.linkedin.com/in/nahom-teshome05" className="social-link liquid-glass-link">
                             <Linkedin size={18} strokeWidth={2} />
                             <span>LinkedIn</span>
                         </a>
-                        <a href="#" className="social-link liquid-glass-link">
+                        <a href="https://github.com/nahom1011" className="social-link liquid-glass-link">
                             <Github size={18} strokeWidth={2} />
                             <span>GitHub</span>
                         </a>
