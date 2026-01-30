@@ -51,7 +51,7 @@ function App() {
           <div className="intro-content">
 
             <div className="hero-photo-container">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=colman&w=200&h=200" alt="Profile" className="hero-photo" />
+              <img src="/photo.jpg" alt="Profile" className="hero-photo" />
             </div>
             <h2 className="hero-tagline">
               WEB Developer, <span className="highlight">Bot Architect</span>, <span className="highlight">Cybersecurity Enthusiast</span>, and <span className="highlight">CCTV Installer</span> — Crafting Solutions with <span className="highlight">Precision</span> and <span className="highlight">Excellence</span>.
